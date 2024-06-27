@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Information</title>
+    <link rel="stylesheet" href="./submit_form.php">
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color:#f0f0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    margin-bottom: 20px;
+    height: 70px;
+    width: 70px;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.contact-form {
+    width: 100%;
+    
+}
+
+.contact-form h2 {
+    margin-bottom: 60px;
+
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+}
+
+.contact-form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #0e5a11;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="contact-form">
+            <h2 style="margin-bottom: 50px;"><b>𝗔𝗗𝗗 𝗡𝗘𝗪 𝗦𝗛𝗜𝗣𝗣𝗜𝗡𝗚 𝗖𝗢𝗠𝗣𝗔𝗡𝗬
+            </b></h2>
+
+            <form id="contactForm" action="submit_form.php" method="POST" onsubmit="return validateForm()">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="website">Website:</label>
+                <input type="url" id="website" name="website" placeholder="https://example.com">
+
+                <label for="website">Tracking Link:</label>
+                <input type="url" id="Tracking_Link" name="Tracking_Link" placeholder="https://example.com">
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required>
+
+                <label for="logo">Logo:</label>
+                <input type="file" id="logo" name="logo"   required>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+   
+    
+
+    <script>
+    function validateForm() {
+    var name = document.getElementById('name').value;
+    var phone = document.getElementById('phone').value;
+    var phonePattern = /^\d{10}$/;
+
+    if (name.trim() === "") {
+        alert("Please enter your name.");
+        return false;
+    }
+
+    if (!phonePattern.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return false;
+    }
+
+    return true;
+}
+
+    </script>
+</body>
+</html>
